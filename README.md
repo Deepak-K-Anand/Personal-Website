@@ -27,6 +27,8 @@ Each section is a Lightning Web Component namely:
 11. VOLUNTEERING
 12. PRODUCTS
 
+See - https://github.com/Deepak-K-Anand/Personal-Website/tree/master/src/modules/resume
+
 ## 💾 Data Flow
 Here is a brief outline of how the Data Flows:
 1.  The `APP` component (https://github.com/Deepak-K-Anand/Personal-Website/blob/master/src/modules/resume/app/app.js) uses the Firebase Web SDK to query the entire `JSON document` from the Firebase Server
