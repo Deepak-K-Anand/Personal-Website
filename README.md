@@ -28,7 +28,7 @@ Here is a brief outline of how the Data Flows:
 1.  The `APP` component (https://github.com/Deepak-K-Anand/Personal-Website/blob/master/src/modules/resume/app/app.js) uses the Firebase Web SDK to query the entire `JSON document` from the Firebase Server
 2.  This entire JSON document is then passed as an attribute to all the child components
 
-## Interactive Chat
+## 💬 Interactive Chat
 ![image](https://user-images.githubusercontent.com/3683725/81493132-7eac9280-92bb-11ea-8ddb-ceb02664de3f.png)
 
 The interactive Chat Widget is built using the Open Source Conversational Chat Form Framework - https://space10-community.github.io/conversational-form/
