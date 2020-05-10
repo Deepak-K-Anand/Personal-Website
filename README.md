@@ -25,8 +25,8 @@ Each section is a Lightning Web Component namely:
 
 ## 💾 Data Flow
 Here is a brief outline of how the Data Flows:
-1.  The `HEADER` component uses the Firebase Web SDK to query the entire `JSON document` from the Firebase Server
-2.  This entire JSON document is then passed as an attribute to the child components
+1.  The `APP` component uses the Firebase Web SDK to query the entire `JSON document` from the Firebase Server
+2.  This entire JSON document is then passed as an attribute to all the child components
 
 ## Interactive Chat
 ![image](https://user-images.githubusercontent.com/3683725/81493132-7eac9280-92bb-11ea-8ddb-ceb02664de3f.png)
