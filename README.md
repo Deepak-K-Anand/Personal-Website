@@ -3,14 +3,14 @@ Source code behind the website [dkanandbio.web.app](https://dkanandbio.web.app)
 ![dkanandbio-web-app](https://user-images.githubusercontent.com/3683725/81492436-3db17f80-92b5-11ea-9b77-c0a7f48d1221.png)
 
 ## 🛠️ How is it built
-The database is served from **Firebase** and the front-end is built using **Lightning Web Components OSS** (_lwc.dev_)
+The database is served from **Firebase** (_https://firebase.google.com/_) and the front-end is built using **Lightning Web Components OSS** (_https://lwc.dev/_)
 
 <table><tr><td><img src="https://dkanandbio.web.app/resources/img/built_with_firebase.svg" width="50" /></td>
   <td><img src="https://dkanandbio.web.app/resources/img/built_with_lwc.svg" width="50" /></td></tr><tr><td>Firebase</td>
   <td>Lightning Web Components (OSS)</td></tr></table>
 
 ## 🖌️ CSS Framework
-The styling (grid system, timeline, meters and avatar) is implemented using **Spectre.css**
+The styling (_grid system_, _timeline_, _meters_ and _avatar_) is implemented using **Spectre.css** (_https://picturepan2.github.io/spectre/_)
 
 ## ⚡ LWC Components
 Each section is a Lightning Web Component namely:
