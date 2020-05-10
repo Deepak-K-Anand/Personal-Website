@@ -1,0 +1,49 @@
+<template>
+    <resume-loading displayed={isBusy}></resume-loading>
+
+    <div if:false={isBusy} class="columns first-color">
+        <div class="column col-10 col-xl-9 col-sm-12">
+            <!--Name-->
+            <h2 class="heading-font">{data.name}</h2>
+
+            <!--Title-->
+            <h5 class="body-font second-color">{data.title}</h5>
+
+            <!--Contact Info-->
+            <div class="columns pt-1">
+                <!--Phone-->
+                <div class="column col-2 col-xl-5 col-sm-12 pt-1 heading-font">
+                    <i class="icon icon-message mx-1"></i>
+                    {data.phone}
+                </div>
+
+                <!--Email-->
+                <div class="column col-3 col-xl-5 col-sm-12 pt-1 heading-font">
+                    <i class="icon icon-mail mx-1"></i>
+                    {data.email}
+                </div>
+
+                <!--trailhead.me-->
+                <div class="column col-4 col-xl-5 col-sm-12 pt-1 heading-font">
+                    <i class="icon icon-link mx-1"></i>
+                    <a href={data.link} target="_blank">
+                        {data.link}
+                    </a>
+                </div>
+
+                <!--Location-->
+                <div class="column col-2 col-xl-5 col-sm-12 pt-1 heading-font">
+                    <i class="icon icon-location mx-1"></i>
+                    {data.location}
+                </div>
+            </div>
+        </div>
+        <div class="column col-1 col-xl-2 col-sm-12 flex-centered">
+            <!--Avatar-->
+            <figure class="avatar avatar-xxl p-1">
+                <!--MVP Logo-->
+                <img src={data.photo} />
+            </figure>
+        </div>
+    </div>
+</template>

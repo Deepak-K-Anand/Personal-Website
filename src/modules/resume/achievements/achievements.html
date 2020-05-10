@@ -1,0 +1,35 @@
+<template>
+    <resume-loading displayed={isBusy}></resume-loading>
+
+    <div if:false={isBusy}>
+        <!--Heading-->
+        <h6 class="heading-font">{data.title}</h6>
+        <div class="divider"></div>
+
+        <!--Achievements-->
+        <template for:each={data.items} for:item="item">
+            <div class="pt-2" key={item.title}>
+                <div class="columns">
+                    <!--Icon-->
+                    <div class="column col-1 col-sm-2">
+                        <figure class="avatar avatar-lg">
+                            <img src={item.icon} />
+                        </figure>
+                    </div>
+
+                    <div class="column col-10 col-sm-8">
+                        <!--Title-->
+                        <h6>{item.title}</h6>
+
+                        <!--Description-->
+                        <span class="body-text">
+                            <a href={item.link} target="_blank"
+                                >{item.description}
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

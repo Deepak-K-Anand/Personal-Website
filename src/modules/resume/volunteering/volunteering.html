@@ -1,0 +1,46 @@
+<template>
+    <resume-loading displayed={isBusy}></resume-loading>
+
+    <div if:false={isBusy}>
+        <!--Heading-->
+        <h6 class="heading-font">{data.title}</h6>
+        <div class="divider"></div>
+
+        <!--Volunteering Programs-->
+        <template for:each={data.items} for:item="item" key={item.role}>
+            <div class="pt-2" key={item.role}>
+                <!--Program Name-->
+                <h5>{item.role}</h5>
+
+                <!--Program Details-->
+                <div class="columns">
+                    <div class="column col-6 col-xl-5 col-sm-12">
+                        <!--Institution Name-->
+                        <a href={item.link} target="_blank">
+                            <div class="heading-font second-color">
+                                {item.institution}
+                            </div>
+                        </a>
+                    </div>
+
+                    <!--Date Range-->
+                    <div class="column col-3 col-xl-5 col-sm-12">
+                        <i class="icon icon-time mx-1"></i>
+                        {item.dateRange.fromYear} -
+                        <template if:true={item.dateRange.isOngoing}>
+                            &nbsp;Ongoing
+                        </template>
+                        <template if:false={item.dateRange.isOngoing}>
+                            &nbsp;{item.dateRange.toYear}
+                        </template>
+                    </div>
+                </div>
+
+                <!--Description-->
+                <div class="description text-justify body-text">
+                    {item.description}
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

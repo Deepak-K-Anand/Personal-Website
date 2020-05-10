@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+        <title>Deepak K Anand</title>
+
+        <!--Fav Icons-->
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="resources/img/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="resources/img/favicon-16x16.png"
+        />
+
+        <!--Stylesheets (Fonts)-->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600&family=Raleway:wght@100;200;300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!--Stylesheets (Spectre)-->
+        <link rel="stylesheet" href="resources/css/styles.min.css" />
+
+        <!--Custom Styles (Chat Box)-->
+        <style>
+            figure#start-chat {
+                bottom: 1rem;
+                cursor: pointer;
+                position: fixed;
+                padding: 0.25rem;
+                right: 1rem;
+                opacity: 0.7;
+                transition: all 0.5s;
+            }
+
+            figure#start-chat:hover {
+                opacity: 1;
+            }
+
+            iframe#chat-box {
+                background: white;
+                border: none;
+                border-radius: 0.5rem;
+                box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16) !important;
+                min-height: 25rem;
+                min-width: 20rem;
+                z-index: 2;
+            }
+        </style>
+    </head>
+    <body class="p-3 m-3">
+        <!--Resume Container-->
+        <div class="container grid-xl p-3 resume">
+            <!--App Container-->
+            <div id="main" class="p-3">
+                <!--Empty State-->
+                <div class="flex-centered">
+                    <div class="loading loading-lg"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <div class="flex-centered heading-font footer">
+            <div class="columns">
+                <div class="column col-12 pt-3">
+                    Built with <span class="text-error">♥</span> by Deepak
+                </div>
+            </div>
+        </div>
+        <div class="flex-centered">
+            <div class="columns">
+                <div class="column col-5 pt-2">
+                    <a href="https://firebase.google.com/" target="_blank">
+                        <img
+                            src="resources/img/built_with_firebase.svg"
+                            class="built-with"
+                        />
+                    </a>
+                </div>
+                <div class="column col-6 pt-2">
+                    <a href="https://lwc.dev/" target="_blank">
+                        <img
+                            src="resources/img/built_with_lwc.svg"
+                            class="built-with"
+                        />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--Start Chat Button-->
+        <figure
+            id="start-chat"
+            class="avatar avatar-xl"
+            onclick="Chat.toggle().setup()"
+        >
+            <img src="resources/img/avatar.png" />
+            <i class="avatar-presence online"></i>
+        </figure>
+
+        <!--Chat Box-->
+        <iframe
+            id="chat-box"
+            style="display: none;"
+            src="https://dkanandbio.web.app/contactme.html"
+        ></iframe>
+
+        <!--Firebase Scripts-->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+        <!--Popper-->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+        <!--Chat Scripts-->
+        <script>
+            var Chat = {
+                loadedOnce: false,
+                elements: {
+                    startChat: document.querySelector("#start-chat"),
+                    chatBox: document.querySelector("#chat-box")
+                },
+                setup: function () {
+                    Popper.createPopper(
+                        Chat.elements.startChat,
+                        Chat.elements.chatBox,
+                        {
+                            placement: "top"
+                        }
+                    );
+
+                    return this;
+                },
+                toggle: function () {
+                    var chatBox = Chat.elements.chatBox;
+                    if (chatBox.style.display === "none") {
+                        if (!Chat.loadedOnce) {
+                            chatBox.src = chatBox.src;
+                            Chat.loadedOnce = true;
+                        }
+                        chatBox.style.display = "";
+                    } else chatBox.style.display = "none";
+
+                    return this;
+                }
+            };
+        </script>
+    </body>
+</html>

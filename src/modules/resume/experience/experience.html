@@ -1,0 +1,100 @@
+<template>
+    <resume-loading displayed={isBusy}></resume-loading>
+
+    <div if:false={isBusy} class="body-font first-color">
+        <!--Heading-->
+        <h6 class="heading-font">{data.title}</h6>
+        <div class="divider"></div>
+
+        <!--Experience Items-->
+        <template for:each={data.items} for:item="item">
+            <div class="timeline" key={item.position}>
+                <!--Timeline Item-->
+                <div class="timeline-item">
+                    <div class="timeline-left">
+                        <template if:false={item.dateRange.isOngoing}>
+                            <a
+                                class="timeline-icon icon-lg tooltip"
+                                data-tooltip={item.dateRange.fromYear}
+                            >
+                                <i class="icon icon-check"></i>
+                            </a>
+                        </template>
+                        <template if:true={item.dateRange.isOngoing}>
+                            <a
+                                class="timeline-icon tooltip"
+                                data-tooltip={item.dateRange.fromYear}
+                            >
+                            </a>
+                        </template>
+                    </div>
+                    <div class="timeline-content">
+                        <!--Experience Header-->
+                        <div class="header">
+                            <!--Position-->
+                            <h5 class="heading-font">{item.position}</h5>
+                            <div class="columns">
+                                <!--Workplace-->
+                                <div class="column col-5 col-xl-12 col-sm-12">
+                                    <h6 class="second-color">
+                                        {item.workplace}
+                                    </h6>
+                                </div>
+
+                                <!--Date Range-->
+                                <div class="column col-3 col-xl-5 col-sm-12 body-text">
+                                    <i class="icon icon-time mx-1"></i>
+                                    {item.dateRange.fromYear} -
+                                    <template
+                                        if:true={item.dateRange.isOngoing}
+                                    >
+                                        &nbsp;Ongoing
+                                    </template>
+                                    <template
+                                        if:false={item.dateRange.isOngoing}
+                                    >
+                                        &nbsp;{item.dateRange.toYear}
+                                    </template>
+                                </div>
+
+                                <!--Location-->
+                                <div class="column col-2 col-xl-5 col-sm-12 body-text">
+                                    <i class="icon icon-location mx-1"></i>
+                                    {item.location}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Experience Body-->
+                        <div class="body">
+                            <!--Company Headline-->
+                            <div class="description py-1">
+                                {item.description}
+                            </div>
+
+                            <!--Responsibilities-->
+                            <div
+                                class="tile"
+                                for:each={item.bullets}
+                                for:item="bullet"
+                                key={bullet.id}
+                            >
+                                <div
+                                    class="tile-icon line-height-min"
+                                    key={bullet.id}
+                                >
+                                    &bull;
+                                </div>
+                                <div class="tile-content" key={bullet.id}>
+                                    <div class="body-text pb-2">
+                                        {bullet.value}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

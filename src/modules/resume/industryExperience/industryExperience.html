@@ -1,0 +1,24 @@
+<template>
+    <resume-loading displayed={isBusy}></resume-loading>
+
+    <div if:false={isBusy}>
+        <!--Heading-->
+        <h6 class="heading-font">{data.title}</h6>
+        <div class="divider"></div>
+
+        <!--Industry Experiences-->
+        <template for:each={data.items} for:item="item">
+            <div class="pt-2" key={item.name}>
+                <!--Industry Experience Name-->
+                <h6 class="second-color">{item.name}</h6>
+
+                <!--Score-->
+                <progress
+                    class="progress"
+                    value={item.score}
+                    max="100"
+                ></progress>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,27 @@
+<template>
+    <resume-loading displayed={isBusy}></resume-loading>
+
+    <div if:false={isBusy}>
+        <!--Heading-->
+        <h6 class="heading-font">{data.title}</h6>
+        <div class="divider"></div>
+
+        <!--Products-->
+        <template for:each={data.items} for:item="item" key={item.title}>
+            <div class="pt-2" key={item.title}>
+                <!--Name-->
+                <h5>{item.title}</h5>
+
+                <!--Platform-->
+                <h6 class="second-color">
+                    <a href={item.link} target="_blank">{item.platform}</a>
+                </h6>
+
+                <!--Description-->
+                <div class="description text-justify body-text">
+                    {item.description}
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

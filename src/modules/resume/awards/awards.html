@@ -1,0 +1,36 @@
+<template>
+    <resume-loading displayed={isBusy}></resume-loading>
+
+    <div if:false={isBusy}>
+        <!--Heading-->
+        <h6 class="heading-font">{data.title}</h6>
+        <div class="divider"></div>
+
+        <!--Awards-->
+        <div class="columns">
+            <template for:each={data.items} for:item="item" key={item.title}>
+                <!--2-columns Row-->
+                <div class="column col-5 col-sm-12" key={item.title}>
+                    <div class="columns pt-3">
+                        <!--Icon-->
+                        <div class="column col-2 col-sm-2">
+                            <figure class="avatar avatar-lg">
+                                <img src={item.icon} />
+                            </figure>
+                        </div>
+
+                        <div class="column col-8 col-sm-8">
+                            <!--Award Name-->
+                            <h6>{item.title}</h6>
+
+                            <!--Award Description-->
+                            <span class="body-text first-color">
+                                {item.description}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

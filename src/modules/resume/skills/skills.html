@@ -1,0 +1,24 @@
+<template>
+    <resume-loading displayed={isBusy}></resume-loading>
+
+    <div if:false={isBusy}>
+        <!--Heading-->
+        <h6 class="heading-font">{data.title}</h6>
+        <div class="divider"></div>
+
+        <!--Skills Categories-->
+        <template for:each={data.items} for:item="item">
+            <div class="pt-2" key={item.title}>
+                <!--Category Name-->
+                <h5 class="second-color">{item.title}</h5>
+
+                <!--Skills-->
+                <div class="skills pt-2">
+                    <template for:each={item.tags} for:item="tag" key={tag}>
+                        <span class="chip" key={tag}>{tag}</span>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

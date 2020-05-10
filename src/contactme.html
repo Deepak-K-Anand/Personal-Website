@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+        <title>Contact - Deepak</title>
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="resources/img/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="resources/img/favicon-16x16.png"
+        />
+
+        <!--Google Fonts-->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!--CF Styles-->
+        <link
+            href="resources/css/conversational-form-purple.min.css"
+            rel="stylesheet"
+        />
+
+        <!--Custom Styles-->
+        <style>
+            * {
+                font-family: "Open Sans", sans-serif !important;
+                font-weight: 400;
+                font-size: 1rem;
+            }
+
+            body {
+                height: 100vh;
+                margin: 0;
+            }
+
+            cf-chat-response.robot thumb {
+                background-image: url("resources/img/avatar.png") !important;
+            }
+        </style>
+    </head>
+    <body>
+        <!--Lead Form-->
+        <form id="contact-me">
+            <cf-robot-message
+                cf-questions="Hello my friend <img src='resources/img/hola.gif' />"
+            >
+            </cf-robot-message>
+
+            <cf-robot-message
+                cf-questions="Let's get started"
+            ></cf-robot-message>
+
+            <label for="radio">
+                <input
+                    cf-questions="Do you want to get in touch?"
+                    cf-label="Yes!"
+                    type="radio"
+                    value="1"
+                />
+            </label>
+
+            <label for="radio">
+                <input
+                    name="requirement"
+                    cf-questions="What do you need help with?"
+                    cf-label="LWC/Aura"
+                    type="radio"
+                    value="LWC/Aura"
+                />
+                <input
+                    name="requirement"
+                    cf-questions="What do you need help with?"
+                    cf-label="Apex/VF"
+                    type="radio"
+                    value="Apex/VF"
+                />
+                <input
+                    name="requirement"
+                    cf-questions="What do you need help with?"
+                    cf-label="Sales/Service Cloud"
+                    type="radio"
+                    value="Sales/Service Cloud"
+                />
+                <input
+                    name="requirement"
+                    cf-questions="What do you need help with?"
+                    cf-label="APIs"
+                    type="radio"
+                    value="APIs"
+                />
+            </label>
+
+            <cf-robot-message
+                cf-questions="Sure! I can help you."
+            ></cf-robot-message>
+
+            <input
+                name="name"
+                cf-questions="May I know your name"
+                cf-input-placeholder="Type your name here"
+                type="text"
+                required
+            />
+
+            <input
+                name="email"
+                cf-questions="Thank you {name}. Kindly give me your email id"
+                cf-input-placeholder="Type your email here"
+                type="email"
+                required
+            />
+
+            <cf-robot-message cf-questions="Thank you!"></cf-robot-message>
+
+            <label for="radio">
+                <input
+                    name="isUrgent"
+                    cf-questions="Is the matter urgent?"
+                    cf-label="Yes"
+                    type="radio"
+                    value="Yes"
+                />
+                <input
+                    name="isUrgent"
+                    cf-questions="Is the matter urgent?"
+                    cf-label="No"
+                    type="radio"
+                    value="No"
+                />
+            </label>
+
+            <cf-robot-message
+                cf-questions="Just hang in there <img src='resources/img/hang_on.gif'>"
+            ></cf-robot-message>
+
+            <cf-robot-message
+                cf-questions="Help is on the way!"
+            ></cf-robot-message>
+        </form>
+
+        <!--CF Scripts-->
+        <script
+            type="text/javascript"
+            src="resources/js/conversational-form.min.js"
+        ></script>
+
+        <!--Firebase Scripts-->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+        <script>
+            var Chat = {
+                config: {
+                    AUTH_DOMAIN: atob(
+                        "Y29udGFjdC1kZWVwYWsuZmlyZWJhc2Vpby5jb20="
+                    ),
+                    DB_URL: atob(
+                        "aHR0cHM6Ly9jb250YWN0LWRlZXBhay5maXJlYmFzZWlvLmNvbQ=="
+                    ),
+                    TABLE_NAME: "/",
+                },
+                normalizeData: function (formData) {
+                    for (var k in formData) {
+                        if (formData[k] instanceof Array) {
+                            formData[k] = formData[k].toString();
+                        }
+
+                        if (k.startsWith("tag-")) {
+                            delete formData[k];
+                        }
+                    }
+
+                    return this;
+                },
+                saveData: function (data) {
+                    firebase
+                        .database()
+                        .ref(Chat.config.TABLE_NAME)
+                        .push()
+                        .set(data)
+                        .then((result) => {
+                            Chat.cf.addRobotChatResponse(
+                                "Deepak will get in touch with you soon!😊"
+                            );
+                        });
+
+                    return this;
+                },
+                initDB: function () {
+                    firebase.initializeApp({
+                        authDomain: Chat.config.AUTH_DOMAIN,
+                        databaseURL: Chat.config.DB_URL,
+                    });
+
+                    return this;
+                },
+                initCF: function () {
+                    Chat.cf = window.cf.ConversationalForm.startTheConversation(
+                        {
+                            animationsEnabled: false,
+                            formEl: document.getElementById("contact-me"),
+                            loadExternalStyleSheet: false,
+                            showProgressBar: true,
+                            theme: "purple",
+                            submitCallback: function () {
+                                var formData = this.getFormData(true);
+                                Chat.normalizeData(formData).saveData(formData);
+                            },
+                        }
+                    );
+
+                    return this;
+                },
+                init: function () {
+                    Chat.initDB().initCF();
+                },
+            };
+
+            Chat.init();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<svg width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle r="64" id="circle" fill="#3e75c3" cy="64" cx="64"/>
+  <rect y="84" x="34" width="10" id="right" height="3" fill="#003f7f"/>
+  <rect y="84" x="83.9" width="10" id="left" height="3" fill="#003f7f"/>
+  <rect y="61" x="34" width="60" id="line" height="3" fill="#E6E6E6"/>
+  <path id="bg_1_" fill="#FFFFFF" d="m95,84l-62,0c-2.2,0 -4,-1.8 -4,-4l0,-12c0,-2.2 1.8,-4 4,-4l62,0c2.2,0 4,1.8 4,4l0,12c0,2.2 -1.8,4 -4,4z"/>
+  <circle r="3" id="green_1_" fill="#003f7f" cy="74" cx="90.9"/>
+  <circle r="3" id="red_1_" fill="#56aaff" cy="74" cx="81.9"/>
+  <rect y="69" x="34" width="3" id="line_6_" height="10" fill="#E6E6E6"/>
+  <rect y="69" x="40" width="3" id="line_5_" height="10" fill="#E6E6E6"/>
+  <rect y="69" x="46" width="3" id="line_4_" height="10" fill="#E6E6E6"/>
+  <path id="bg" fill="#FFFFFF" d="m95,61l-62,0c-2.2,0 -4,-1.8 -4,-4l0,-12c0,-2.2 1.8,-4 4,-4l62,0c2.2,0 4,1.8 4,4l0,12c0,2.2 -1.8,4 -4,4z"/>
+  <circle r="3" id="green" fill="#003f7f" cy="51" cx="90.9"/>
+  <circle r="3" id="red" fill="#56aaff" cy="51" cx="81.9"/>
+  <rect y="46" x="34" width="3" id="line_3_" height="10" fill="#E6E6E6"/>
+  <rect y="46" x="40" width="3" id="line_2_" height="10" fill="#E6E6E6"/>
+  <rect y="46" x="46" width="3" id="line_1_" height="10" fill="#E6E6E6"/>
+ </g>
+</svg>

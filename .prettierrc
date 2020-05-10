@@ -1,0 +1,10 @@
+{
+    "trailingComma": "none",
+    "tabWidth": 4,
+    "overrides": [
+        {
+            "files": "**/*.html",
+            "options": { "parser": "lwc" }
+        }
+    ]
+}

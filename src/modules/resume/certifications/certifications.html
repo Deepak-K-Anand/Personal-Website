@@ -1,0 +1,22 @@
+<template>
+    <resume-loading displayed={isBusy}></resume-loading>
+
+    <div if:false={isBusy}>
+        <!--Heading-->
+        <h6 class="heading-font">{data.title}</h6>
+        <div class="divider"></div>
+
+        <!--Certifications-->
+        <template for:each={data.items} for:item="item">
+            <div class="pt-2" key={item.title}>
+                <!--Certification Name-->
+                <h6 class="second-color">{item.title}</h6>
+
+                <!--Issuer-->
+                <span class="body-text">
+                    {item.issuer}
+                </span>
+            </div>
+        </template>
+    </div>
+</template>

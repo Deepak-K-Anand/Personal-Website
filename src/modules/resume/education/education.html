@@ -1,0 +1,46 @@
+<template>
+    <resume-loading displayed={isBusy}></resume-loading>
+
+    <div if:false={isBusy}>
+        <!--Heading-->
+        <h6 class="heading-font">{data.title}</h6>
+        <div class="divider"></div>
+
+        <!--Degrees-->
+        <template for:each={data.items} for:item="item" key={item.degree}>
+            <div class="pt-2" key={item.degree}>
+                <!--Degree Name-->
+                <h5>{item.degree}</h5>
+
+                <!--Institution Details-->
+                <div class="columns pt-1">
+                    <div class="column col-4 col-sm-5 pt-1">
+                        <!--Institution Name-->
+                        <div class="heading-font second-color">
+                            {item.institution}
+                        </div>
+
+                        <!--Institution Location-->
+                        <div class="body-text first-color">
+                            <i class="icon icon-location mx-1"></i>
+                            {item.location}
+                        </div>
+                    </div>
+
+                    <!--Date Range-->
+                    <div class="column col-3 col-sm-4 pt-1">
+                        <i class="icon icon-time mx-1"></i>
+                        {item.dateRange.fromYear} - {item.dateRange.toYear}
+                    </div>
+
+                    <!--GPA-->
+                    <div class="column col-2 pt-1">
+                        <span class="second-color">
+                            <strong>{item.gpa}</strong>&nbsp; </span
+                        >/ 4
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

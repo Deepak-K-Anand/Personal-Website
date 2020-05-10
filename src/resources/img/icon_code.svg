@@ -1,0 +1,18 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient y2="1" x2="1" y1="0" x1="0" id="svg_9">
+   <stop offset="1" stop-color="#3e75c3"/>
+   <stop offset="1" stop-color="#c18a3c"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle id="svg_3" r="256" fill="url(#svg_9)" cy="256" cx="256"/>
+  <path id="svg_5" opacity="0.3" d="m144,144.384l0,239.232l240,0l0,-239.232l-240,0zm38.07033,199.39148l36.40266,-36.40533l-36.40266,-36.40375l6.7872,-6.7872l43.19047,43.19095l-43.19047,43.19305l-6.7872,-6.78772zm101.71147,8.19358l-58.52107,0l0,-9.59998l58.52107,0l0,9.59998z"/>
+  <path id="svg_6" fill="#FFFFFF" d="m136,136.384l0,239.232l240,0l0,-239.232l-240,0zm38.07033,199.39148l36.40266,-36.40533l-36.40266,-36.40375l6.7872,-6.7872l43.19047,43.19095l-43.19047,43.19305l-6.7872,-6.78772zm101.71147,8.19358l-58.52107,0l0,-9.59998l58.52107,0l0,9.59998z"/>
+ </g>
+</svg>
